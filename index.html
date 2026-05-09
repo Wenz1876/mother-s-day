@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>90's Mother's Day</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:linear-gradient(135deg,#ffb6d9,#ffd6ec,#c5b3ff);
+      background-size:300% 300%;
+      animation:bgMove 12s ease infinite;
+      color:white;
+      overflow-x:hidden;
+      font-family:'VT323', monospace;
+      min-height:100vh;
+      background-attachment:fixed;
+    }
+
+    @keyframes bgMove{
+      0%{
+        background-position:0% 50%;
+      }
+      50%{
+        background-position:100% 50%;
+      }
+      100%{
+        background-position:0% 50%;
+      }
+    }
+
+    .stars{
+      position:fixed;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size:40px 40px;
+      background-position:0 0,20px 20px;
+      opacity:0.3;
+      animation:moveStars 20s linear infinite;
+      z-index:0;
+    }
+
+    @keyframes moveStars{
+      from{
+        transform:translateY(0);
+      }
+      to{
+        transform:translateY(-40px);
+      }
+    }
+
+    .vhs{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      mix-blend-mode:soft-light;
+      opacity:0.35;
+      z-index:999;
+    }
+
+    .hearts{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:1;
+    }
+
+    .heart{
+      position:absolute;
+      color:rgba(255,255,255,0.7);
+      font-size:24px;
+      animation:floatHeart linear infinite;
+    }
+
+    @keyframes floatHeart{
+      from{
+        transform:translateY(100vh) scale(0.5) rotate(0deg);
+        opacity:0;
+      }
+
+      10%{
+        opacity:1;
+      }
+
+      to{
+        transform:translateY(-120vh) scale(1.2) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    .top-title{
+      text-align:center;
+      padding:40px 20px 10px;
+      position:relative;
+      z-index:5;
+    }
+
+    .top-title h2{
+      font-family:'Press Start 2P', cursive;
+      font-size:18px;
+      color:#fff8a8;
+      line-height:1.8;
+      animation:glowTitle 2s infinite alternate;
+    }
+
+    @keyframes glowTitle{
+      from{
+        text-shadow:
+          4px 4px #ff69b4,
+          0 0 10px white;
+      }
+
+      to{
+        text-shadow:
+          4px 4px #9f7aea,
+          0 0 20px #fff8a8,
+          0 0 40px white;
+      }
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:70px;
+      padding:80px 8%;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-text{
+      max-width:550px;
+      animation:float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    .hero-text h1{
+      font-family:'Press Start 2P', cursive;
+      font-size:48px;
+      line-height:1.5;
+      color:white;
+      text-shadow:
+        4px 4px #ff69b4,
+        8px 8px #9f7aea;
+      margin-bottom:30px;
+    }
+
+    .hero-text p{
+      font-size:32px;
+      line-height:1.7;
+      margin-bottom:35px;
+      color:#fffefc;
+      font-weight:bold;
+      text-shadow:2px 2px rgba(0,0,0,0.2);
+    }
+
+    .hero-image{
+      position:relative;
+    }
+
+    .hero-image img{
+      width:420px;
+      height:540px;
+      object-fit:cover;
+      border-radius:30px;
+      border:5px solid white;
+      box-shadow:
+        0 0 30px rgba(255,255,255,0.6),
+        0 0 60px rgba(255,105,180,0.5);
+      animation:pulse 3s infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.03);
+      }
+    }
+
+    .sparkle{
+      position:absolute;
+      width:10px;
+      height:10px;
+      background:white;
+      border-radius:50%;
+      box-shadow:
+        0 0 10px white,
+        0 0 20px #ff69b4,
+        0 0 30px #fff8a8;
+      animation:sparkle 2s infinite ease-in-out;
+    }
+
+    @keyframes sparkle{
+      0%,100%{
+        transform:scale(0.6);
+        opacity:0.4;
+      }
+
+      50%{
+        transform:scale(1.4);
+        opacity:1;
+      }
+    }
+
+    .sticker{
+      position:absolute;
+      background:white;
+      color:#ff69b4;
+      padding:15px 20px;
+      border-radius:25px;
+      font-size:24px;
+      box-shadow:4px 4px rgba(0,0,0,0.2);
+      animation:wiggle 3s infinite;
+    }
+
+    @keyframes wiggle{
+      0%,100%{
+        transform:rotate(0deg);
+      }
+
+      50%{
+        transform:rotate(5deg);
+      }
+    }
+
+    .sticker.one{
+      top:-20px;
+      left:-30px;
+    }
+
+    .sticker.two{
+      bottom:-20px;
+      right:-20px;
+    }
+
+    .divider{
+      width:80%;
+      height:6px;
+      margin:80px auto;
+      border-radius:999px;
+      background:linear-gradient(
+        90deg,
+        #ff69b4,
+        #fff8a8,
+        #c5b3ff,
+        #ff69b4
+      );
+      background-size:300% 100%;
+      box-shadow:
+        0 0 15px #ff69b4,
+        0 0 30px #fff8a8;
+      animation:rainbowMove 5s linear infinite;
+    }
+
+    @keyframes rainbowMove{
+      from{
+        background-position:0%;
+      }
+
+      to{
+        background-position:300%;
+      }
+    }
+
+    .gallery-section{
+      padding:60px 8% 120px;
+      position:relative;
+      z-index:2;
+    }
+
+    .gallery-header{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .gallery-title{
+      font-size:52px;
+      color:#fff8a8;
+      text-shadow:3px 3px rgba(0,0,0,0.3);
+    }
+
+    .gallery-subtitle{
+      font-size:28px;
+      margin-top:10px;
+      text-shadow:2px 2px rgba(0,0,0,0.3);
+    }
+
+    .gallery-carousel{
+      position:relative;
+      max-width:1100px;
+      margin:auto;
+      overflow:hidden;
+      border-radius:40px;
+      border:4px solid rgba(255,255,255,0.35);
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(10px);
+      box-shadow:0 15px 40px rgba(0,0,0,0.2);
+      transition:0.4s;
+    }
+
+    .gallery-carousel:hover{
+      box-shadow:
+        0 0 20px rgba(255,255,255,0.5),
+        0 0 60px rgba(255,105,180,0.4);
+    }
+
+    .film-strip{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:18px;
+      background:repeating-linear-gradient(
+        to right,
+        #000 0px,
+        #000 20px,
+        transparent 20px,
+        transparent 40px
+      );
+      opacity:0.6;
+      z-index:10;
+    }
+
+    .film-strip.bottom{
+      top:auto;
+      bottom:0;
+    }
+
+    .carousel-track{
+      display:flex;
+      transition:transform 0.8s ease;
+    }
+
+    .carousel-slide{
+      min-width:100%;
+      position:relative;
+    }
+
+    .carousel-slide img{
+      width:100%;
+      height:650px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .slide-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+      display:flex;
+      align-items:flex-end;
+      padding:40px;
+    }
+
+    .slide-overlay h3{
+      font-size:42px;
+      color:#fff8a8;
+      text-shadow:3px 3px rgba(0,0,0,0.4);
+    }
+
+    .carousel-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:none;
+      background:rgba(255,255,255,0.25);
+      color:white;
+      font-size:32px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      z-index:5;
+      transition:0.3s;
+    }
+
+    .carousel-btn:hover{
+      transform:translateY(-50%) scale(1.08);
+      background:rgba(255,255,255,0.4);
+    }
+
+    .prev-btn{
+      left:20px;
+    }
+
+    .next-btn{
+      right:20px;
+    }
+
+    .carousel-dots{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:25px;
+    }
+
+    .dot{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.4);
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .dot.active{
+      background:#fff8a8;
+      transform:scale(1.2);
+    }
+
+    .mom-message-section{
+      padding:100px 8%;
+      position:relative;
+      z-index:2;
+    }
+
+    .message-container{
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .message-container h2{
+      font-size:58px;
+      color:#fff8a8;
+      margin-bottom:20px;
+      text-shadow:
+        0 0 15px rgba(255,255,255,0.8),
+        4px 4px #ff69b4;
+    }
+
+    .message-intro{
+      font-size:30px;
+      margin-bottom:50px;
+    }
+
+    .message-box{
+      background:rgba(255,255,255,0.18);
+      border:3px solid rgba(255,255,255,0.35);
+      backdrop-filter:blur(14px);
+      padding:60px;
+      border-radius:40px;
+      box-shadow:
+        0 0 30px rgba(255,255,255,0.15),
+        0 0 60px rgba(255,105,180,0.2);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .message-box::before{
+      content:"♡";
+      position:absolute;
+      top:20px;
+      left:30px;
+      font-size:60px;
+      color:rgba(255,255,255,0.2);
+    }
+
+    .message-box::after{
+      content:"✦";
+      position:absolute;
+      bottom:20px;
+      right:30px;
+      font-size:60px;
+      color:rgba(255,255,255,0.2);
+    }
+
+    .message-box p{
+      font-size:32px;
+      line-height:1.9;
+      margin-bottom:25px;
+    }
+
+    .signature{
+      margin-top:40px;
+      font-size:36px;
+      color:#fff8a8;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      font-size:24px;
+      color:white;
+      position:relative;
+      z-index:2;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 20px #ff69b4;
+    }
+
+    @media(max-width:900px){
+
+      .hero-text h1{
+        font-size:32px;
+      }
+
+      .hero-text p,
+      .message-box p{
+        font-size:24px;
+      }
+
+      .hero-image img{
+        width:100%;
+        height:auto;
+      }
+
+      .message-container h2{
+        font-size:38px;
+      }
+
+      .message-box{
+        padding:35px;
+      }
+
+      .slide-overlay h3{
+        font-size:28px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="stars"></div>
+
+  <div class="vhs"></div>
+
+  <div class="hearts">
+    <div class="heart" style="left:5%; animation-duration:12s;">♡</div>
+    <div class="heart" style="left:15%; animation-duration:18s;">✦</div>
+    <div class="heart" style="left:30%; animation-duration:14s;">♡</div>
+    <div class="heart" style="left:45%; animation-duration:20s;">✿</div>
+    <div class="heart" style="left:60%; animation-duration:16s;">♡</div>
+    <div class="heart" style="left:75%; animation-duration:22s;">✦</div>
+    <div class="heart" style="left:90%; animation-duration:17s;">♡</div>
+  </div>
+
+  <div class="top-title">
+    <h2>♡ MOTHER'S DAY 2026 ♡</h2>
+  </div>
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h1>
+        HAPPY<br>
+        MOTHER'S DAY MARICRIS BROWN
+      </h1>
+
+      <p>
+        To the most amazing mom ever, thank you for every hug,
+        every smile, and every beautiful memory.
+      </p>
+
+    </div>
+
+    <div class="hero-image">
+
+      <div class="sparkle" style="top:10%; left:5%;"></div>
+      <div class="sparkle" style="top:30%; right:10%;"></div>
+      <div class="sparkle" style="bottom:15%; left:15%;"></div>
+      <div class="sparkle" style="bottom:8%; right:5%;"></div>
+
+    
+
+      <img src= images/1.jpg alt="Mother's Day" >
+
+      <div class="sticker two">BEST MOM ✿</div>
+
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="gallery-section">
+
+    <div class="gallery-header">
+
+      <h2 class="gallery-title">Photo Gallery ✨</h2>
+
+      <p class="gallery-subtitle">
+        our favorite memories together ♡
+      </p>
+
+    </div>
+
+    <div class="gallery-carousel">
+
+      <div class="film-strip"></div>
+      <div class="film-strip bottom"></div>
+
+      <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
+
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-slide">
+
+          <img
+            src=images/2.jpg
+            alt="Memory 1"
+          >
+
+          <div class="slide-overlay">
+            <h3>Beautiful Moments Together ✨</h3>
+          </div>
+
+        </div>
+
+        <div class="carousel-slide">
+
+          <img
+            src=images/3.jpg
+            alt="Memory 2"
+          >
+
+          <div class="slide-overlay">
+            <h3>Forever Precious Memories 💖</h3>
+          </div>
+
+        </div>
+
+        <div class="carousel-slide">
+
+          <img
+            src=images/4.jpg
+            alt="Memory 3"
+          >
+
+          <div class="slide-overlay">
+            <h3>Love That Never Fades 🌷</h3>
+          </div>
+
+          
+
+        </div>
+
+         <div class="carousel-slide">
+
+          <img
+            src=images/5.jpg
+            alt="Memory 4"
+          >
+
+
+
+        </div>
+
+      </div>
+
+      <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
+
+    </div>
+
+    <div class="carousel-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+
+  </section>
+
+  <section class="mom-message-section">
+
+    <div class="message-container">
+
+      <h2>To Our Dearest Mom 💌</h2>
+
+      <p class="message-intro">
+        a little message filled with love just for you ♡
+      </p>
+
+      <div class="message-box">
+
+        <p>
+          Dear Mom,
+        </p>
+
+        <p>
+          Thank you for always being our safe place, our biggest supporter,
+          and the person who fills our lives with endless love and warmth.
+        </p>
+
+        <p>
+          Every hug, every smile, every little thing you do means more than
+          words can ever explain. You make ordinary moments feel magical.
+        </p>
+
+        <p>
+          We are so lucky to have you in our lives.
+          Thank you for everything.
+        </p>
+
+        <p class="signature">
+          Love always,<br>
+          Your Family ♡
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    made with ♡ and glitter for mother's day ✨
+  </footer>
+
+  <script>
+
+    let currentIndex = 0;
+
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.dot');
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function updateCarousel(){
+
+      track.style.transform =
+        `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach(dot =>
+        dot.classList.remove('active')
+      );
+
+      dots[currentIndex].classList.add('active');
+    }
+
+    function moveSlide(direction){
+
+      currentIndex += direction;
+
+      if(currentIndex < 0){
+        currentIndex = slides.length - 1;
+      }
+
+      if(currentIndex >= slides.length){
+        currentIndex = 0;
+      }
+
+      updateCarousel();
+    }
+
+    function currentSlide(index){
+
+      currentIndex = index;
+
+      updateCarousel();
+    }
+
+    setInterval(() => {
+      moveSlide(1);
+    }, 3000);
+
+  </script>
+
+</body>
+</html>
